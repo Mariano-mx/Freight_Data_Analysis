@@ -5,7 +5,9 @@
 <!-- 1 sentence: what you did + tools + main result. This is the most-read line of the whole README. -->
 End-to-end Excel analysis of U.S. freight indicators, built with **Power Query, Power Pivot (DAX) and an interactive dashboard**, showing how truckload carriers went from earning **+$0.91** per mile in 2021 to losing **−$0.19** per mile in 2024.
 
-![Dashboard demo](images/dashboard-demo.gif)
+<img src="images/dashboard_interaction.gif" alt="Dashboard interaction" width="800">
+
+
 <!-- Main GIF: 10–15 s using the slicers on the dashboard. -->
 
 ---
