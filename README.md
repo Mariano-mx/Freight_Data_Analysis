@@ -52,7 +52,8 @@ What drove U.S. truckload spot rates and carrier profitability between 2019 and 
 
 ### 2. Data Model (Power Pivot)
 <!-- Screenshot of the diagram view. Calendar should show the "1" side of every relationship. -->
-![Data model](images/data-model.png)
+<img width="1004" height="590" alt="data_model" src="https://github.com/user-attachments/assets/343cf2ef-c681-474b-907a-ab3fb148b6d8" />
+
 
 ### 3. DAX Measures
 ```dax
