@@ -48,10 +48,12 @@ What drove U.S. truckload spot rates and carrier profitability between 2019 and 
 
 ### 1. Data Cleaning (Power Query)
 <!-- 2–3 lines + screenshot of the Applied Steps panel. -->
+After defining the main indicators for the analysis, 
 ![Power Query steps](images/power-query-steps.png)
 
 ### 2. Data Model (Power Pivot)
 <!-- Screenshot of the diagram view. Calendar should show the "1" side of every relationship. -->
+
 <img width="1004" height="590" alt="data_model" src="https://github.com/user-attachments/assets/343cf2ef-c681-474b-907a-ab3fb148b6d8" />
 
 
@@ -84,7 +86,7 @@ IF ( ISBLANK ( [Avg Spot Rate] ), BLANK (),
 
 ## How to Use
 
-Download `Freight_Analysis.xlsx` and open it in Excel for Windows (Power Pivot required). Use the slicers on the **Dashboard** sheet.
+Download `analysis.xlsx` and open it in Excel for Windows (Power Pivot required). Use the slicers on the **Dashboard** sheet.
 
 ## Author
 
