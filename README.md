@@ -27,16 +27,16 @@ End-to-end Excel analysis of U.S. freight indicators, built with **Power Query, 
 ## The Question
 
 <!-- 1 or 2 sentences. Add one line on why it matters to a carrier or a shipper — your transport experience helps here. -->
-What drove U.S. truckload spot rates and carrier profitability between 2019 and 2024?
+**What drove U.S. truckload spot rates and carrier profitability between 2019 and 2024?**
 
 Land freight in the U.S. has been in a recession over the last 3 years, profitability has reduced significantly for the main vehicles (Dry Vans, Flatbeds and Refrigerated trailers) in comparison to previous years. I wanted to understand this phenomenon with the available public data.
 
-The 2022-2024 freight recession was driven by **overcapacity**, not by weak demand or rises in fuel costs.
+Among other factors, the 2022-2024 freight recession was driven by **overcapacity**, not by weak demand or rises in fuel costs.
 Demand has held up after 2020, rising up to 20% in 2022, and although there was a 2% pullback in 2023, it reached a 22% increase above pre-pandemic levels in 2024. However, **capacity grew even faster**: attracted by record rates, more than 80.1k for-hire carriers registered in the MCMIS in 2021, a 71% increase compared to 2019.
 
 With more trucks competing for the same freight, dry van spot rates peaked in January 2022 and **fell 32% from 2021 to 2024**. Fuel was not the trigger: rates were already down 28% when diesel peaked in June 2022.
 
-Meanwhile, non-fuel operating costs (wages, insurance, equipment) rose 24%. Squeezed from both sides, dry van margin per mile went from +$0.91 in 2021 to −$0.19 in 2024, so the spot market no longer covered the cost of running a truck. Refrigerated and flatbed margins stayed positive but shrank by more than 80%.
+Meanwhile, non-fuel operating costs (wages, insurance, equipment) rose 24%. Squeezed from both sides, dry van margin per mile went from +$0.91 in 2021 to −$0.19 in 2024, so the spot market no longer covered the cost of running a truck. Refrigerated and flatbed margins stayed positive but **shrank by more than 80%**.
 
 As demand remains strong, a recovery in rates depends on capacity leaving the market. The rise in new registrations in 2024 suggests that adjustment had not yet begun.
 
@@ -82,7 +82,7 @@ I built a Data Model in Power Pivot in which the 'DATE' column of all my tables 
 
 ### 3. DAX Measures
 I used DAX measures to:
-- Calculate custom indicators (Margin per mile, Margin % and Average cost excluding fuel).
+- Calculate custom indicators (Margin per mile, Margin % and Average Cost excluding fuel).
 - Adapt values to changes in the slicers.
 - Feed the dashboard's KPI cards. 
 
@@ -92,23 +92,28 @@ Margin per Mile :=
 IF ( ISBLANK ( [Avg Spot Rate] ), BLANK (),
      [Avg Spot Rate] - [Non-Fuel Cost] )
 ```
-This measure substracts the fuel cost from the spot rate ONLY when an average spot rate data exists. 
+This measure substracts the fuel cost from the spot rate ONLY when a spot rate  exists. Rate data ends in May 2024 while cost data continues into 2025, so without this check the measure would show false losses for months with no rates. Returning a blank instead keeps those periods out of PivotTables and charts.
 
-**Margin per mile %**:
+**Margin per mile % measure**:
 ```dax
 DIVIDE( [Margin], [avg spot rate])
 ```
-<!-- 1 line explaining why the IF matters (rates end May 2024, costs go to 2025). Show 1–2 measures only. -->
+This measure shows the margin in percentage format. 
 
 ### 4. Dashboard
-![Dashboard](images/dashboard.png)
+
+This dashboard serves as a summary of the analysis and its conclusions:
 <!-- Optional second GIF: changing trailer type and seeing the KPIs update. -->
+![dashboard gif](dashboard_interaction.gif)
+- I used the CUBEVALUE formula (which is linked directly to the data model) to create dynamic KPI cards that update when the value of the slicer changes.
+- I linked two PivotCharts to a single slicer, so one click updates the whole dashboard by vehicle type.
 
 ## Limitations
 
 - Spot rate data ends in **May 2024**, so 2024 covers January–May only.
 - ATRI costs are annual; each month uses its year's cost.
 - Margins compare linehaul spot rates against ATRI industry-average non-fuel costs.
+- New carrier registrations do not include carriers that exited the market, so they overstate net capacity growth.
 - The analysis shows correlation, not causation.
 
 
@@ -118,4 +123,4 @@ Download `analysis.xlsx` and open it in Excel for Windows (Power Pivot required)
 
 ## Author
 
-**Mariano Morales** · [LinkedIn](URL) · [Email](mailto:...)
+**Mariano Morales** · [LinkedIn](URL) · [Email](mailto:marianodjesusmm@gmail.com)
