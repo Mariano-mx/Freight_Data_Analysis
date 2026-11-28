@@ -123,4 +123,4 @@ Download `analysis.xlsx` and open it in Excel for Windows (Power Pivot required)
 
 ## Author
 
-**Mariano Morales** · [LinkedIn](URL) · [Email](mailto:marianodjesusmm@gmail.com)
+**Mariano Morales** · [LinkedIn](www.linkedin.com/in/mariano-de-jesús-morales-moya-336635385) · [Email](mailto:marianodjesusmm@gmail.com)
